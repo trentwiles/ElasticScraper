@@ -15,7 +15,7 @@ for hits in api["result"]["hits"]:
         if service["service_name"] == "ELASTICSEARCH":
             print("Got a hit for elastic: " + main_ip + ":" + str(service["port"]))
             print("Sending an HTTP request (unauthenticated) to the port")
-            data = requests.get("http://" + main_ip + ":" + str(service["port"]) + "/_search", headers={"User-agent": "ElasticScraper (+https://github.com/RiversideRocks/ElasticScraper)"}
+            data = requests.get("http://" + main_ip + ":" + str(service["port"]) + "/_search", headers={"User-agent": "ElasticScraper (+https://github.com/RiversideRocks/ElasticScraper)"})
             print(data.text)
 
 print(api["result"]["links"]["next"]); #returns the next cursor, good for the bash script
