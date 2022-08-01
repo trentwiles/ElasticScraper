@@ -15,3 +15,6 @@ for hits in api["result"]["hits"]:
         if service["service_name"] == "ELASTICSEARCH":
             print("Got a hit for elastic: " + main_ip + ":" + str(service["port"]))
             print("Sending an HTTP request (unauthenticated) to the port")
+
+print(api["result"]["links"]["next"]); #returns the next cursor, good for the bash script
+# by the end of development, this will only return the "next" cursor
