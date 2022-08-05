@@ -4,9 +4,12 @@ import urllib.parse
 api_base = "https://search.censys.io/api/v2/hosts/search?q="
 search = urllib.parse.quote("services.http.response.status_code: 200 and service.name: ELASTICSEARCH")
 
-r = requests.get(api_base + search + "&per_page=50&virtual_hosts=EXCLUDE", headers={"accept": "application/json", "Authorization": "Basic abc"})
+if sys.argv[1] == "":
+    r = requests.get(api_base + search + "&per_page=50&virtual_hosts=EXCLUDE", headers={"accept": "application/json", "Authorization": "Basic abc"})
+else:
+    r = requests.get(api_base + search + "&per_page=50&virtual_hosts=EXCLUDE&cursor=" + sys.argv[1], headers={"accept": "application/json", "Authorization": "Basic abc"})
 
-#print(api_base + search + "&per_page=50&virtual_hosts=EXCLUDE")
+    #print(api_base + search + "&per_page=50&virtual_hosts=EXCLUDE")
 api = r.json()
 
 for hits in api["result"]["hits"]:
