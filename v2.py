@@ -1,12 +1,13 @@
 import requests
 import urllib.parse
+import sys
 
 api_base = "https://search.censys.io/api/v2/hosts/search?q="
 search = urllib.parse.quote("services.http.response.status_code: 200 and service.name: ELASTICSEARCH")
 
 cur = "abc" # could be anything
 
-while true:
+while True:
     if cur !== "abc"
         r = requests.get(api_base + search + "&per_page=50&virtual_hosts=EXCLUDE&cursor=" + sys.argv[1], headers={"accept": "application/json", "Authorization": "Basic abc"})
     else:
