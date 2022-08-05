@@ -8,7 +8,7 @@ search = urllib.parse.quote("services.http.response.status_code: 200 and service
 cur = "abc" # could be anything
 
 while True:
-    if cur !== "abc"
+    if cur != "abc":
         r = requests.get(api_base + search + "&per_page=50&virtual_hosts=EXCLUDE&cursor=" + sys.argv[1], headers={"accept": "application/json", "Authorization": "Basic abc"})
     else:
         r = requests.get(api_base + search + "&per_page=50&virtual_hosts=EXCLUDE", headers={"accept": "application/json", "Authorization": "Basic abc"})
