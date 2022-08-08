@@ -4,9 +4,12 @@ import urllib.parse
 import sys
 import base64
 
+censys_api_id = ""
+censys_api_secret = ""
+
 api_base = "https://search.censys.io/api/v2/hosts/search?q="
 search = urllib.parse.quote("services.http.response.status_code: 200 and service.name: ELASTICSEARCH")
-no_base_64 = "YOUR_CENSYS_API_ID:YOUR_CENSYS_API_SECRET"
+no_base_64 = censys_api_id + ":" + censys_api_secret
 
 message_bytes = no_base_64.encode('ascii')
 base64_bytes = base64.b64encode(message_bytes)
